@@ -125,7 +125,7 @@ class CustomSeq2SeqTrainer(Seq2SeqTrainer):
             generated_tokens = self._pad_tensors_to_max_len(generated_tokens, gen_kwargs["max_length"])
 
         with torch.no_grad():
-            if self.use_amp:
+            if self.use_apex:
                 with autocast():
                     outputs = model(**inputs)
             else:
